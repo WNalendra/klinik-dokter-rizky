@@ -98,17 +98,10 @@
     <div id="reservasi-section" class="card p-6 mb-6">
       <h2 class="text-xl font-bold mb-4">📅 Formulir Reservasi</h2>
       <form id="reservationForm" class="space-y-5">
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Kunjungan</label>
-            <input type="date" id="apptDate" required class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-300">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Pilih Slot Waktu</label>
-            <select id="timeSlot" required class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm focus:ring-2 focus:ring-blue-100">
-              <option value="">-- Pilih slot --</option>
-            </select>
-          </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Kunjungan yang Diinginkan</label>
+          <input type="date" id="apptDate" required class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-300">
+          <p class="mt-2 text-xs text-gray-500">Slot waktu akan ditentukan dan dikonfirmasi oleh admin melalui WhatsApp.</p>
         </div>
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
@@ -139,22 +132,21 @@
             </select>
           </div>
         </div>
-        <button type="submit" class="btn-primary w-full text-sm">Daftar Reservasi</button>
+        <button type="submit" class="btn-primary w-full text-sm" href="wa.me/62813564384">Kirim Permintaan via WhatsApp</button>
       </form>
     </div>
 
     <!-- SUKSES RESERVASI -->
     <div id="success-view" class="card p-8 text-center hidden animate-in">
       <div class="text-5xl mb-3">✅</div>
-      <h2 class="text-2xl font-bold text-gray-800">Reservasi Berhasil!</h2>
+      <h2 class="text-2xl font-bold text-gray-800">Permintaan Reservasi Terkirim!</h2>
       <div class="my-6 bg-blue-50 p-5 rounded-2xl inline-block">
-        <p class="text-sm text-blue-800">Nomor Antrian Anda</p>
-        <p id="queueNumberDisplay" class="text-4xl font-extrabold text-blue-900 mt-1">-</p>
-        <p class="text-sm mt-2">Estimasi kedatangan: <span id="estimatedTime" class="font-semibold">-</span> WIB</p>
+        <p class="text-sm text-blue-800">Konfirmasi Jadwal</p>
+        <p class="text-sm mt-2">Admin akan menentukan slot waktu dan menghubungi Anda melalui WhatsApp.</p>
       </div>
       <div class="flex justify-center gap-3 mt-4">
         <a id="whatsappConfirmLink" href="#" target="_blank" class="bg-green-600 text-white px-5 py-2.5 rounded-full text-sm hover:bg-green-700 transition flex items-center gap-2">
-          💬 Konfirmasi via WhatsApp
+          💬 Buka WhatsApp
         </a>
         <button onclick="resetReservation()" class="bg-white border border-gray-200 text-gray-700 px-5 py-2.5 rounded-full text-sm hover:bg-gray-50 transition">Buat Reservasi Baru</button>
       </div>

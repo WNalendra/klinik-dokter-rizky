@@ -8,40 +8,6 @@
   }
   function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(appData)); }
 
-  function generateTimeSlots() {
-    const slots = [];
-    for (let h = 8; h < 16; h++) {
-      for (let m of [0, 30]) {
-        if (h === 15 && m === 30) continue;
-        const start = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
-        const endH = m === 30 ? h+1 : h;
-        const endM = m === 30 ? '00' : '30';
-        slots.push(`${start}-${String(endH).padStart(2,'0')}:${endM}`);
-      }
-    }
-    return slots;
-  }
-
-  function updateSlotDropdown() {
-    const dateInput = document.getElementById('apptDate');
-    const slotSelect = document.getElementById('timeSlot');
-    if (!dateInput || !slotSelect) return;
-    const selectedDate = dateInput.value;
-    slotSelect.innerHTML = '<option value="">-- Pilih slot --</option>';
-    if (!selectedDate) return;
-    const bookedSlots = appData.bookings.filter(b => b.date === selectedDate && b.status !== 'cancelled').map(b => b.timeSlot);
-    generateTimeSlots().forEach(slot => {
-      const opt = document.createElement('option');
-      opt.value = slot;
-      opt.textContent = slot;
-      if (bookedSlots.includes(slot)) {
-        opt.disabled = true;
-        opt.textContent += ' (penuh)';
-      }
-      slotSelect.appendChild(opt);
-    });
-  }
-
   document.addEventListener('DOMContentLoaded', () => {
     loadData();
     const dateInput = document.getElementById('apptDate');
@@ -49,8 +15,6 @@
       const today = new Date().toISOString().slice(0,10);
       dateInput.min = today;
       dateInput.value = today;
-      dateInput.addEventListener('change', updateSlotDropdown);
-      updateSlotDropdown();
     }
     const role = sessionStorage.getItem('activeRole') || 'public';
     switchRole(role);
@@ -83,31 +47,17 @@
   document.getElementById('reservationForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const date = document.getElementById('apptDate').value;
-    const timeSlot = document.getElementById('timeSlot').value;
     const name = document.getElementById('fullName').value.trim();
     const wa = document.getElementById('whatsapp').value.trim();
     const age = document.getElementById('age').value;
     const gender = document.getElementById('gender').value;
     const complaint = document.getElementById('complaint').value;
-    if (!date || !timeSlot || !name || !wa || !age || !gender || !complaint) return alert('Lengkapi semua field.');
-    if (appData.bookings.some(b => b.date === date && b.timeSlot === timeSlot && b.status !== 'cancelled')) {
-      alert('Slot sudah penuh.'); updateSlotDropdown(); return;
-    }
-    const sameDay = appData.bookings.filter(b => b.date === date);
-    const queueNum = sameDay.length + 1;
-    const newBooking = {
-      id: Date.now().toString(), date, timeSlot, name, whatsapp: wa, age, gender, complaint,
-      queueNumber: `AN-${String(queueNum).padStart(3,'0')}`, status: 'booked', createdAt: new Date().toISOString()
-    };
-    appData.bookings.push(newBooking);
-    saveData();
-    document.getElementById('queueNumberDisplay').textContent = newBooking.queueNumber;
-    document.getElementById('estimatedTime').textContent = timeSlot.split('-')[0];
+    if (!date || !name || !wa || !age || !gender || !complaint) return alert('Lengkapi semua field.');
     document.getElementById('reservasi-section').classList.add('hidden');
     document.getElementById('success-view').classList.remove('hidden');
-    const msg = `Halo, saya ${name} ingin konfirmasi reservasi. No antrian ${newBooking.queueNumber}, ${date} jam ${timeSlot}.`;
+    const msg = `Halo Admin Klinik, saya ingin mengajukan reservasi.\n\nNama: ${name}\nWhatsApp: ${wa}\nUsia: ${age}\nJenis kelamin: ${gender}\nKeluhan: ${complaint}\nTanggal yang diinginkan: ${date}\n\nMohon informasi slot waktu yang tersedia.`;
     document.getElementById('whatsappConfirmLink').href = `https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`;
-    updateSlotDropdown();
+    window.open(document.getElementById('whatsappConfirmLink').href, '_blank');
   });
 
   function resetReservation() {
@@ -116,7 +66,6 @@
     document.getElementById('reservationForm').reset();
     const today = new Date().toISOString().slice(0,10);
     document.getElementById('apptDate').value = today;
-    updateSlotDropdown();
   }
 
   function loginAssistant() {
