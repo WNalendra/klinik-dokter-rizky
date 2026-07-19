@@ -47,7 +47,7 @@ document
     document.getElementById("success-view").classList.remove("hidden");
     const msg = `Halo Admin Klinik, saya ingin mengajukan reservasi.\n\nNama: ${name}\nWhatsApp: ${wa}\nUsia: ${age}\nJenis kelamin: ${gender}\nKeluhan: ${complaint}\nTanggal yang diinginkan: ${date}\n\nMohon informasi slot waktu yang tersedia.`;
     document.getElementById("whatsappConfirmLink").href =
-      `https://wa.me/628813564384?text=${encodeURIComponent(msg)}`;
+      `https://wa.me/6281217440795?text=${encodeURIComponent(msg)}`;
     window.open(document.getElementById("whatsappConfirmLink").href, "_blank");
   });
 

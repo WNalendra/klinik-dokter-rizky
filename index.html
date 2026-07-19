@@ -13,7 +13,10 @@
 <!-- ==================== HALAMAN NAVIGASI ==================== -->
 <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary border-bottom border-light" aria-label="Navigasi utama">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#beranda">RHS Dental Care</a>
+    <a class="navbar-brand d-flex align-items-center fw-bold" href="#beranda">
+      <img src="RHScare.png" alt="Logo RHS Dental Care" width="42" height="42" class="rounded-circle me-2">
+      <span>RHS Dental Care</span>
+    </a>
     <button id="navbarToggle" class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Buka menu navigasi">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -61,14 +64,14 @@
         <ul class="space-y-3 text-sm text-gray-700">
           <li><strong>Nama:</strong> Rizky Haris Setyawibawa, Sp.KG</li>
           <li><strong>Spesialisasi:</strong> Konservasi Gigi (Endodontik, Restorasi Estetik)</li>
-          <li><strong>Pengalaman:</strong> 10+ tahun</li>
-          <li><strong>Pendidikan:</strong> Universitas Indonesia, FKG</li>
+          <li><strong>Pengalaman:</strong> Sejak 2007</li>
+          <li><strong>Pendidikan:</strong> Universitas Airlangga</li>
         </ul>
       </div>
       <div id="lokasi-klinik" class="card p-6">
         <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="text-2xl">📍</span> Informasi Klinik</h2>
-        <p class="text-sm text-gray-700"><strong>Jam Buka:</strong> Senin–Sabtu, 08.00–16.00</p>
-        <p class="text-sm text-gray-700 mt-1"><strong>Alamat:</strong> Jl. Kesehatan No. 12, Jakarta Pusat</p>
+        <p class="text-sm text-gray-700"><strong>Jam Buka:</strong> Senin–Sabtu, 17.00–21.00</p>
+        <p class="text-sm text-gray-700 mt-1"><strong>Alamat:</strong> Jl. Wisma Pungging Permai No. AE 12, Wonogiri, Tunggalpager, Kec. Pungging, Kabupaten Mojokerto, Jawa Timur 61384</p>
         <div class="mt-4 rounded-xl overflow-hidden border border-gray-100">
           <iframe src="https://www.google.com/maps?output=embed&amp;q=Dokter+Gigi+drg.+Rizky+Harris+Setyawibawa%2C+SpKG+%28RHS+dental+care%29%2C+Jl.+Wisma+Pungging+Permai+No.AE+12%2C+Wonogiri%2C+Tunggalpager%2C+Kec.+Pungging%2C+Kabupaten+Mojokerto%2C+Jawa+Timur+61384" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Klinik di Google Maps"></iframe>
           <a href="https://maps.app.goo.gl/SY5EkW3C5jrf7uDL6?g_st=ic" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 text-center text-sm font-semibold text-blue-800 hover:bg-blue-50 transition-colors">Buka lokasi di Google Maps</a>
@@ -146,13 +149,12 @@
             </select>
           </div>
         </div>
-        <button type="submit" class="btn-primary w-full text-sm" href="wa.me/628813564384">Kirim Permintaan via WhatsApp</button>
+        <button type="submit" class="btn-primary w-full text-sm" href="wa.me/6281217440795">Kirim Permintaan via WhatsApp</button>
       </form>
     </div>
 
     <!-- SUKSES RESERVASI -->
     <div id="success-view" class="card p-8 text-center hidden animate-in">
-      <div class="text-5xl mb-3">✅</div>
       <h2 class="text-2xl font-bold text-gray-800">Permintaan Reservasi Terkirim!</h2>
       <div class="my-6 bg-blue-50 p-5 rounded-2xl inline-block">
         <p class="text-sm text-blue-800">Konfirmasi Jadwal</p>
@@ -160,7 +162,7 @@
       </div>
       <div class="flex justify-center gap-3 mt-4">
         <a id="whatsappConfirmLink" href="#" target="_blank" class="bg-green-600 text-white px-5 py-2.5 rounded-full text-sm hover:bg-green-700 transition flex items-center gap-2">
-          💬 Buka WhatsApp
+          Buka WhatsApp
         </a>
         <button onclick="resetReservation()" class="bg-white border border-gray-200 text-gray-700 px-5 py-2.5 rounded-full text-sm hover:bg-gray-50 transition">Buat Reservasi Baru</button>
       </div>
