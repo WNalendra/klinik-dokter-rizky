@@ -3,26 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Klinik Gigi Sehat | Reservasi Online</title>
+  <title>RHS Dental Care</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
 
-<!-- Navigasi Ringan -->
-<nav class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100 px-4 py-3 flex justify-center gap-2">
-  <div class="flex bg-gray-100 rounded-full p-1">
-    <button id="tab-public" class="px-6 py-2 rounded-full text-sm tab-active transition" onclick="switchRole('public')">🏥 Beranda</button>
-    <button id="tab-assistant" class="px-6 py-2 rounded-full text-sm transition" onclick="switchRole('assistant')">👩‍💼 Asisten</button>
+<!-- ==================== HALAMAN NAVIGASI ==================== -->
+<nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary border-bottom border-light" aria-label="Navigasi utama">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#beranda">RHS Dental Care</a>
+    <button id="navbarToggle" class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Buka menu navigasi">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse !visible" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 pt-3 pt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#profil-dokter">Profil Dokter</a></li>
+        <li class="nav-item"><a class="nav-link" href="#lokasi-klinik">Informasi Klinik</a></li>
+        <li class="nav-item"><a class="nav-link" href="#layanan">Layanan Unggulan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">Pertanyaan Umum</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn btn-primary rounded-pill px-3" href="#reservasi-section">Reservasi</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
+
 
 <main class="max-w-6xl mx-auto px-4 py-6">
 
   <!-- ==================== HALAMAN PUBLIK (PASIEN) ==================== -->
   <div id="public-view" class="animate-in">
     <!-- HERO SECTION -->
-    <div class="hero-pattern rounded-3xl p-6 md:p-10 mb-10 flex flex-col md:flex-row items-center gap-8">
+    <div id="beranda" class="hero-pattern rounded-3xl p-6 md:p-10 mb-10 flex flex-col md:flex-row items-center gap-8">
       <div class="flex-shrink-0">
         <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden border-4 border-white">
           <!-- Placeholder foto dokter (inisial) -->
@@ -30,8 +44,8 @@
         </div>
       </div>
       <div class="text-center md:text-left">
-        <span class="text-sm font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full">👨‍⚕️ Dokter Gigi Profesional</span>
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">drg. Rizky, Sp.KG</h1>
+        <span class="text-sm font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full">Dokter Gigi Profesional</span>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Rizky Haris Setyawibawa, Sp.KG</h1>
         <p class="text-gray-600 mt-2 max-w-lg">Spesialis Konservasi Gigi dengan pengalaman lebih dari 10 tahun. Memberikan perawatan gigi terbaik dengan teknologi modern dan suasana klinik yang nyaman.</p>
         <div class="mt-4 flex flex-wrap gap-3 justify-center md:justify-start">
           <button onclick="document.getElementById('reservasi-section').scrollIntoView({behavior:'smooth'})" class="btn-primary text-sm">📅 Reservasi Sekarang</button>
@@ -45,37 +59,37 @@
       <div class="card p-6">
         <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="text-2xl">🩺</span> Profil Dokter</h2>
         <ul class="space-y-3 text-sm text-gray-700">
-          <li><strong>Nama:</strong> drg. Rizky Kevin, Sp.KG</li>
+          <li><strong>Nama:</strong> Rizky Haris Setyawibawa, Sp.KG</li>
           <li><strong>Spesialisasi:</strong> Konservasi Gigi (Endodontik, Restorasi Estetik)</li>
           <li><strong>Pengalaman:</strong> 10+ tahun</li>
           <li><strong>Pendidikan:</strong> Universitas Indonesia, FKG</li>
-          <li><strong>Registrasi:</strong> STR No. 123456789</li>
         </ul>
       </div>
-      <div class="card p-6">
+      <div id="lokasi-klinik" class="card p-6">
         <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="text-2xl">📍</span> Informasi Klinik</h2>
         <p class="text-sm text-gray-700"><strong>Jam Buka:</strong> Senin–Sabtu, 08.00–16.00</p>
         <p class="text-sm text-gray-700 mt-1"><strong>Alamat:</strong> Jl. Kesehatan No. 12, Jakarta Pusat</p>
         <div class="mt-4 rounded-xl overflow-hidden border border-gray-100">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4761073036787!2d106.8266333147689!3d-6.175235995527962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5b7a0d1c1b7%3A0x3a2c3c4b5f77c3b!2sMonas!5e0!3m2!1sid!2sid!4v1690000000000" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps?output=embed&amp;q=Dokter+Gigi+drg.+Rizky+Harris+Setyawibawa%2C+SpKG+%28RHS+dental+care%29%2C+Jl.+Wisma+Pungging+Permai+No.AE+12%2C+Wonogiri%2C+Tunggalpager%2C+Kec.+Pungging%2C+Kabupaten+Mojokerto%2C+Jawa+Timur+61384" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Klinik di Google Maps"></iframe>
+          <a href="https://maps.app.goo.gl/SY5EkW3C5jrf7uDL6?g_st=ic" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 text-center text-sm font-semibold text-blue-800 hover:bg-blue-50 transition-colors">Buka lokasi di Google Maps</a>
         </div>
       </div>
     </div>
 
     <!-- LAYANAN & FAQ -->
     <div class="grid md:grid-cols-2 gap-6 mb-10">
-      <div class="card p-6">
+      <div id="layanan" class="card p-6">
         <h2 class="text-xl font-bold mb-4">🦷 Layanan Unggulan</h2>
         <div class="flex flex-wrap gap-2">
-          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Konsultasi</span>
-          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Tambal Gigi</span>
-          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Cabut Gigi</span>
-          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Scaling / Karang Gigi</span>
-          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Behel / Ortodonti</span>
-          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Pemutih Gigi</span>
+          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Perawatan Saluran Akar</span>
+          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Tambal Gigi Aesthetic</span>
+          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Smile Makeover</span>
+          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Pemutihan Gigi</span>
+          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Scaling</span>
+          <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm">Mouth Rehabilitation</span>
         </div>
       </div>
-      <div class="card p-6">
+      <div id="faq" class="card p-6">
         <h2 class="text-xl font-bold mb-4">❓ Pertanyaan Umum</h2>
         <div class="space-y-4 text-sm">
           <div>
@@ -153,34 +167,9 @@
     </div>
   </div>
 
-  <!-- ==================== DASHBOARD ASISTEN ==================== -->
-  <div id="assistant-view" class="hidden animate-in">
-    <div id="assistant-login" class="max-w-md mx-auto card p-6 mt-10">
-      <h2 class="text-xl font-bold mb-4 text-center">Login Asisten</h2>
-      <input type="email" id="assistEmail" placeholder="asisten@klinik.com" class="w-full p-3 border rounded-xl mb-2 text-sm bg-gray-50">
-      <input type="password" id="assistPass" placeholder="password" class="w-full p-3 border rounded-xl mb-4 text-sm bg-gray-50">
-      <button onclick="loginAssistant()" class="btn-primary w-full text-sm">Masuk</button>
-      <p class="text-xs text-gray-400 mt-3 text-center">demo: asisten@klinik.com / 123</p>
-    </div>
-    <div id="assistant-dashboard" class="hidden">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold">📋 Antrian Hari Ini</h2>
-        <div class="flex gap-2">
-          <button onclick="exportData()" class="text-sm bg-white border px-4 py-2 rounded-full hover:bg-gray-50 transition">📥 Unduh CSV</button>
-          <button onclick="logout('assistant')" class="text-sm text-red-500 font-medium">Logout</button>
-        </div>
-      </div>
-      <div class="card overflow-x-auto p-4">
-        <table class="w-full text-sm" id="assistantTable">
-          <thead><tr class="text-left text-gray-500 border-b"><th class="py-2">No Antrian</th><th>Nama</th><th>Slot</th><th>Keluhan</th><th>Status</th><th>Aksi</th></tr></thead>
-          <tbody id="assistantQueueBody"></tbody>
-        </table>
-        <div id="empty-queue" class="text-center py-8 text-gray-400 hidden">Belum ada pasien terdaftar hari ini.</div>
-      </div>
-    </div>
-  </div>
 </main>
 
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
