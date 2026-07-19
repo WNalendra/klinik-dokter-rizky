@@ -22,6 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
     dateInput.min = today;
     dateInput.value = today;
   }
+
+  const complaintSelect = document.getElementById("complaint");
+  const complaintOther = document.getElementById("complaintOther");
+  if (complaintSelect && complaintOther) {
+    complaintSelect.addEventListener("change", () => {
+      const isOther = complaintSelect.value === "Lainnya";
+      complaintOther.classList.toggle("hidden", !isOther);
+      complaintOther.required = isOther;
+      if (!isOther) complaintOther.value = "";
+    });
+  }
 });
 
 function toggleFAQ(btn) {
@@ -40,9 +51,14 @@ document
     const wa = document.getElementById("whatsapp").value.trim();
     const age = document.getElementById("age").value;
     const gender = document.getElementById("gender").value;
-    const complaint = document.getElementById("complaint").value;
+    let complaint = document.getElementById("complaint").value;
+    const complaintOther = document.getElementById("complaintOther").value.trim();
     if (!date || !name || !wa || !age || !gender || !complaint)
       return alert("Lengkapi semua field.");
+    if (complaint === "Lainnya") {
+      if (!complaintOther) return alert("Mohon tuliskan keluhan Anda.");
+      complaint = complaintOther;
+    }
     document.getElementById("reservasi-section").classList.add("hidden");
     document.getElementById("success-view").classList.remove("hidden");
     const msg = `Halo Admin Klinik, saya ingin mengajukan reservasi.\n\nNama: ${name}\nWhatsApp: ${wa}\nUsia: ${age}\nJenis kelamin: ${gender}\nKeluhan: ${complaint}\nTanggal yang diinginkan: ${date}\n\nMohon informasi slot waktu yang tersedia.`;
@@ -57,4 +73,9 @@ function resetReservation() {
   document.getElementById("reservationForm").reset();
   const today = new Date().toISOString().slice(0, 10);
   document.getElementById("apptDate").value = today;
+  const complaintOther = document.getElementById("complaintOther");
+  if (complaintOther) {
+    complaintOther.classList.add("hidden");
+    complaintOther.required = false;
+  }
 }
