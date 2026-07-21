@@ -49,11 +49,12 @@ document
     const date = document.getElementById("apptDate").value;
     const name = document.getElementById("fullName").value.trim();
     const wa = document.getElementById("whatsapp").value.trim();
+    const nik = document.getElementById("NIK").value.trim();
     const age = document.getElementById("age").value;
     const gender = document.getElementById("gender").value;
     let complaint = document.getElementById("complaint").value;
     const complaintOther = document.getElementById("complaintOther").value.trim();
-    if (!date || !name || !wa || !age || !gender || !complaint)
+    if (!date || !name || !wa || !nik || !age || !gender || !complaint)
       return alert("Lengkapi semua field.");
     if (complaint === "Lainnya") {
       if (!complaintOther) return alert("Mohon tuliskan keluhan Anda.");
