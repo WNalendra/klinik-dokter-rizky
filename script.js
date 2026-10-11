@@ -50,11 +50,13 @@ document
     const name = document.getElementById("fullName").value.trim();
     const wa = document.getElementById("whatsapp").value.trim();
     const nik = document.getElementById("NIK").value.trim();
-    const age = document.getElementById("age").value;
+    const birthRaw = document.getElementById("birthDate").value;
+    const occupation = document.getElementById("occupation").value.trim();
+    const address = document.getElementById("address").value.trim();
     const gender = document.getElementById("gender").value;
     let complaint = document.getElementById("complaint").value;
     const complaintOther = document.getElementById("complaintOther").value.trim();
-    if (!date || !name || !wa || !nik || !age || !gender || !complaint)
+    if (!date || !name || !wa || !nik || !birthRaw || !occupation || !address || !gender || !complaint)
       return alert("Lengkapi semua field.");
     if (complaint === "Lainnya") {
       if (!complaintOther) return alert("Mohon tuliskan keluhan Anda.");
@@ -62,7 +64,8 @@ document
     }
     document.getElementById("reservasi-section").classList.add("hidden");
     document.getElementById("success-view").classList.remove("hidden");
-    const msg = `Halo Admin Klinik, saya ingin mengajukan reservasi.\n\nNama: ${name}\nWhatsApp: ${wa}\nUsia: ${age}\nNIK/KTP: ${nik}\nJenis kelamin: ${gender}\nKeluhan: ${complaint}\nTanggal yang diinginkan: ${date}\n\nMohon informasi slot waktu yang tersedia.`;
+    const birth = birthRaw.split("-").reverse().join("/");
+    const msg = `Halo Admin Klinik, saya ingin mengajukan reservasi.\n\nNama: ${name}\nWhatsApp: ${wa}\nTanggal lahir: ${birth}\nAlamat: ${address}\nProfesi/Pekerjaan: ${occupation}\nNIK/KTP: ${nik}\nJenis kelamin: ${gender}\nKeluhan: ${complaint}\nTanggal yang diinginkan: ${date}\n\nMohon informasi slot waktu yang tersedia.`;
     document.getElementById("whatsappConfirmLink").href =
       `https://wa.me/6281217440795?text=${encodeURIComponent(msg)}`;
     window.open(document.getElementById("whatsappConfirmLink").href, "_blank");
