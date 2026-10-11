@@ -136,8 +136,8 @@
         </div>
         <div class="grid sm:grid-cols-3 gap-4">
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Usia</label>
-            <input type="number" id="age" min="1" max="120" required class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Lahir</label>
+            <input type="date" id="birthDate" max="9999-12-31" required class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm">
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
@@ -146,13 +146,21 @@
             </select>
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Keluhan Utama</label>
-            <select id="complaint" required class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm">
-              <option value="">Pilih keluhan</option>
-              <option>Konsultasi</option><option>Sakit Gigi</option><option>Karang Gigi</option><option>Cabut Gigi</option><option>Tambal</option><option>Lainnya</option>
-            </select>
-            <input type="text" id="complaintOther" placeholder="Tuliskan keluhan Anda" class="hidden w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm mt-2">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Profesi/Pekerjaan</label>
+            <input type="text" id="occupation" required placeholder="Contoh: Karyawan, Pelajar" class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm">
           </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Alamat</label>
+          <textarea id="address" rows="2" required placeholder="Alamat lengkap domisili" class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm"></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Keluhan Utama</label>
+          <select id="complaint" required class="w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm">
+            <option value="">Pilih keluhan</option>
+            <option>Konsultasi</option><option>Sakit Gigi</option><option>Karang Gigi</option><option>Cabut Gigi</option><option>Tambal</option><option>Lainnya</option>
+          </select>
+          <input type="text" id="complaintOther" placeholder="Tuliskan keluhan Anda" class="hidden w-full rounded-xl border-gray-200 bg-gray-50 p-2.5 text-sm mt-2">
         </div>
         <button type="submit" class="btn-primary w-full text-sm" href="wa.me/6281217440795">Kirim Permintaan via WhatsApp</button>
       </form>
